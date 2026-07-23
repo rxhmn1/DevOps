@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f2f2f2;
+        }
+
+        .container{
+            width:350px;
+            margin:50px auto;
+            padding:20px;
+            background:white;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+        }
+
+        input{
+            width:100%;
+            padding:8px;
+            margin:5px 0 15px;
+            box-sizing:border-box;
+        }
+
+        input[type="submit"]{
+            background-color:green;
+            color:white;
+            border:none;
+            padding:10px;
+            cursor:pointer;
+        }
+
+        input[type="reset"]{
+            background-color:red;
+            color:white;
+            border:none;
+            padding:10px;
+            cursor:pointer;
+        }
+
+        #message{
+            text-align:center;
+            margin-top:20px;
+        }
+    </style>
+
+    <script>
+        function validate(){
+
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var roll = document.getElementById("roll").value;
+            var branch = document.getElementById("branch").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var gender = document.getElementById("gender").value;
+            var age = document.getElementById("age").value;
+
+
+            if(fname==""){
+                alert("Enter First Name");
+                return false;
+            }
+
+            if(lname==""){
+                alert("Enter Last Name");
+                return false;
+            }
+
+            if(roll==""){
+                alert("Enter Roll Number");
+                return false;
+            }
+
+            if(branch==""){
+                alert("Enter Branch");
+                return false;
+            }
+
+            if(email==""){
+                alert("Enter Email");
+                return false;
+            }
+
+            if(email.indexOf("@")<=0 || 
+               email.lastIndexOf(".")<email.indexOf("@")+2 ||
+               email.lastIndexOf(".")==email.length-1){
+
+                alert("Enter Valid Email");
+                return false;
+            }
+
+            if(mobile=="" || mobile.length!=10 || isNaN(mobile)){
+                alert("Enter Valid Mobile Number");
+                return false;
+            }
+
+            if(gender==""){
+                alert("Enter Gender");
+                return false;
+            }
+
+            if(age==""){
+                alert("Enter Age");
+                return false;
+            }
+
+
+            document.getElementById("message").innerHTML =
+            "<h2 style='color:green;'>Thank You!</h2>" +
+            "<p>Your form has been submitted successfully.</p>";
+
+            return false;
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form onsubmit="return validate()">
+
+    First Name:
+    <input type="text" id="fname">
+
+    Last Name:
+    <input type="text" id="lname">
+
+    Roll Number:
+    <input type="text" id="roll">
+
+    Branch:
+    <input type="text" id="branch">
+
+    Email:
+    <input type="text" id="email">
+
+    Mobile:
+    <input type="text" id="mobile">
+
+    Gender:
+    <input type="text" id="gender">
+
+    Age:
+    <input type="text" id="age">
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+</form>
+
+<div id="message"></div>
+
+</div>
+
+</body>
+</html>
